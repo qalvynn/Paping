@@ -43,7 +43,6 @@ func main() {
 
 	ip := fmt.Sprintf("%s:%s", host, port)
 	timeout := time.Duration(timeoutMs) * time.Millisecond
-
 	for {
 		start := time.Now()
 		conn, err := net.DialTimeout("tcp", ip, timeout)
@@ -59,7 +58,6 @@ func main() {
 			)
 			conn.Close()
 		}
-
 		if remaining := timeout - elapsed; remaining > 0 {
 			time.Sleep(remaining)
 		}
